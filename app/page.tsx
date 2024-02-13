@@ -1,5 +1,5 @@
 'use client';
-import { RandomFox } from "@/components/RandomFox";
+import { LazyImage } from "@/components/LazyImage";
 import type { MouseEventHandler } from "react";
 import { useState } from "react";
 
@@ -25,7 +25,13 @@ export default function Home() {
       {
         images.map(({id, url}) => (
           <div key={id} className="p-4">
-            <RandomFox image={url}/>
+            <LazyImage 
+              src={url} 
+              title={"Random Fox"}
+              width="320"
+              height="auto"
+              className="mx-auto rounded-md bg-gray-300"
+            />
           </div>
       ))}
     </main>
