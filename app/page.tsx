@@ -8,14 +8,12 @@ const getRandomNumber = (): number => Math.floor(Math.random() * 123) + 1;
 // Generate simple unique id
 const generateId = (): string => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
-type ImageItem = { id: string; url: string };
-
 export default function Home() {
-  const [images, setImages] = useState<Array<ImageItem>>([]);
+  const [images, setImages] = useState<Array<IFoxImageItem>>([]);
 
   const addNewFox: MouseEventHandler<HTMLButtonElement> = () => {
-    const newImageItem: ImageItem = { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumber()}.jpg`};
-    setImages([...images, newImageItem]);
+    const newIFoxImageItem: IFoxImageItem = { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumber()}.jpg`};
+    setImages([...images, newIFoxImageItem]);
   }
 
   return (
