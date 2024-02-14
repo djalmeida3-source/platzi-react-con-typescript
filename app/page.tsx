@@ -1,10 +1,11 @@
 'use client';
 import { LazyImage } from "@/components/LazyImage";
 import type { MouseEventHandler } from "react";
+import { random } from "lodash";
 import { useState } from "react";
 
 // Generate a ramdom function between 1 and 123
-const getRandomNumber = (): number => Math.floor(Math.random() * 123) + 1;
+const getRandom = (): number => random(1, 123);
 // Generate simple unique id
 const generateId = (): string => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
@@ -12,7 +13,7 @@ export default function Home() {
   const [images, setImages] = useState<Array<IFoxImageItem>>([]);
 
   const addNewFox: MouseEventHandler<HTMLButtonElement> = () => {
-    const newIFoxImageItem: IFoxImageItem = { id: generateId(), url: `https://randomfox.ca/images/${getRandomNumber()}.jpg`};
+    const newIFoxImageItem: IFoxImageItem = { id: generateId(), url: `https://randomfox.ca/images/${getRandom()}.jpg`};
     setImages([...images, newIFoxImageItem]);
   }
 
